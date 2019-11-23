@@ -9,7 +9,7 @@
 configs/.env
 
 # test coverage files
-builds/coverage/*
+build/coverage/*
 
 # SAM templates
 builds/templates/*
