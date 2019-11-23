@@ -1,0 +1,21 @@
+{
+  "name": "test_runner",
+  "version": "1.0.0",
+  "description": "Test runner",
+  "repository": "https://github.com/healthbridgeltd/nodejs-sam-bootstrap/",
+  "author": "Zava",
+  "dependencies": {},
+  "scripts": {
+    "lint": "standard --env jest | standard-reporter --stylish",
+    "lint:fix": "standard --env jest --fix",
+    "test:watch": "jest --watchAll",
+    "test": "jest --coverage",
+    "recursive-install": "npm-recursive-install"
+  },
+  "devDependencies": {
+    "jest": "24.9.0",
+    "recursive-install": "1.4.0",
+    "standard": "14.3.0",
+    "standard-reporter": "1.0.5"
+  }
+}
