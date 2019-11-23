@@ -1,11 +1,11 @@
 const messages = require('../../../internal/app/hello-world/messages')
-
 let response
 
 /**
  * Hello World
  */
 exports.lambdaHandler = async (event, context) => {
+
   try {
     response = {
       statusCode: 200,

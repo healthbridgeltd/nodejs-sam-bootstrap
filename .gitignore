@@ -12,7 +12,7 @@ configs/.env
 build/coverage/*
 
 # SAM templates
-builds/templates/*
+build/templates/*
 
 # IDEs
 .vscode/
