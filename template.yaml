@@ -2,8 +2,8 @@ AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
 
-  golang-sam-bootstrap
-  SAM Template for golang-sam-bootstrap
+  nodejs-sam-bootstrap
+  SAM Template for nodejs-sam-bootstrap
 
 #####  Globals for Lambda functions #####
 Globals:
