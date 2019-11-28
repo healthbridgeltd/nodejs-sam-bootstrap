@@ -1,0 +1,2 @@
+
+exports.getHelloWorld = () => 'Hello, World!'

@@ -1,0 +1,22 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Env variables file
+configs/.env
+
+# test coverage files
+build/coverage/*
+
+# SAM templates
+build/templates/*
+
+# IDEs
+.vscode/
+.idea/
+
+# Dependency directories
+node_modules/
