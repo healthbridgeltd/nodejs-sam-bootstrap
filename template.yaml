@@ -40,7 +40,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: src/cmd/lambdas/hello-world/app.lambdaHandler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
       Events:
         CatchAll:
           Type: Api
