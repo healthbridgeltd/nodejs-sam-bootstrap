@@ -16,7 +16,7 @@ This will create a new repository using this one.
 
 ### Prerequisites
 
-* [NodeJS version 10 or later](https://nodejs.org/en/download/) 
+* [NodeJS version 12 or later](https://nodejs.org/en/download/) - or use [nvm](https://github.com/nvm-sh/nvm)
 * [Docker](https://docs.docker.com/install)
 * [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 * [SAM CLI](https://aws.amazon.com/serverless/sam/)
