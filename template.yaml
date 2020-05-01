@@ -35,11 +35,12 @@ Conditions:
   CreateSandboxResources: !Equals [!Ref Stage, sandbox]
 
 Resources:
-  #####  Lambda Fuctions #####
+  #####  Lambda Functions #####
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/cmd/lambdas/hello-world/app.lambdaHandler
+      Handler: cmd/lambdas/hello-world/app.lambdaHandler
+      CodeUri: src/
       Runtime: nodejs12.x
       Events:
         CatchAll:
