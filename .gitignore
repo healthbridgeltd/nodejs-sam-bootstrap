@@ -20,3 +20,6 @@ build/templates/*
 
 # Dependency directories
 node_modules/
+
+# aws-sam-webpack-plugin
+.aws-sam
