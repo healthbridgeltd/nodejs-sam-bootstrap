@@ -1,6 +1,6 @@
 const path = require('path')
 const AwsSamPlugin = require('aws-sam-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 
 const awsSamPlugin = new AwsSamPlugin()
 
@@ -38,9 +38,8 @@ module.exports = {
   // Add the AWS SAM Webpack plugin
   plugins: [awsSamPlugin],
 
-
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
-  },
+    minimizer: [new TerserPlugin()]
+  }
 }
