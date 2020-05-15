@@ -41,7 +41,6 @@ docker-build:
 ## install npm dependencies
 install:
 	${DOCKER} npm install
-	${DOCKER} npm run recursive-install
 
 ## Run linter
 lint:
@@ -55,14 +54,18 @@ format:
 tests:
 	${DOCKER} npm run test
 
+## build webpack
+webpack-build:
+	NODE_ENV=production ${DOCKER} npm run build
+
 ## Deploy application code (template.yml) to aws environment
-deploy:
+deploy: webpack-build
 	scripts/deploy.sh $(AWS_PROFILE) $(S3_BUCKET) $(APP_NAME) ${APP_TEMPLATE} ${USERNAME}
 
 ## Run the lambda functions locally
-run:	
+run: webpack-build
 	cp configs/lambdas-env.json /tmp/lambdas-env.json && sed -n 's/#USERNAME#/${USERNAME}/g' /tmp/lambdas-env.json
-	sam local start-api --env-vars /tmp/lambdas-env.json --profile $(AWS_PROFILE)
+	cd .aws-sam/build/ && sam local start-api --env-vars /tmp/lambdas-env.json --profile $(AWS_PROFILE)
 
 ## Display logs of certain function (ex: make logs function=FUNCTION-NAME)
 logs:
