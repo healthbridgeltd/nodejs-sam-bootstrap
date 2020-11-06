@@ -1,14 +1,11 @@
-const app = require('./app.js')
-const messages = require('../../../internal/app/hello-world/messages')
-
-const context = {}
-const event = {}
+import app from './app'
+import messages from '../../../internal/app/hello-world/messages'
 
 describe('helloWorld', () => {
   it('Should return hello world', async () => {
     const spy = jest.spyOn(messages, 'getHelloWorld')
 
-    const result = await app.lambdaHandler(event, context)
+    const result = await app.lambdaHandler()
 
     expect(result.body).toBe('Hello, World!')
 

@@ -1,4 +1,5 @@
 module.exports = {
+  preset: 'ts-jest',
   roots: [
     '<rootDir>/src/'
   ],
@@ -6,8 +7,10 @@ module.exports = {
   verbose: true,
   // Coverage options
   collectCoverageFrom: [
-    'src/cmd/**/*.js',
-    '!src/cmd/**/*.test.js'
+    'src/cmd/**/*.ts',
+    'src/internal/**/*.ts',
+    '!src/internal/**/*.test.ts',
+    '!src/cmd/**/*.test.ts'
   ],
   coverageDirectory: 'build/coverage'
 }

@@ -1,4 +1,4 @@
-const sut = require('./messages.js')
+import sut from './messages'
 
 describe('helloWorldMessage', () => {
   it('Should return hello world', async () => {
