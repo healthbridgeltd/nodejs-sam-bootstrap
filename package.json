@@ -4,12 +4,6 @@
   "description": "Cloneable bootstrap for AWS SAM and NodeJS setup",
   "repository": "https://github.com/healthbridgeltd/nodejs-sam-bootstrap/",
   "author": "Zava",
-  "eslintConfig": {
-    "rules": {
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "error"
-    }
-  },
   "standardx": {
     "parser": "@typescript-eslint/parser",
     "plugins": [
