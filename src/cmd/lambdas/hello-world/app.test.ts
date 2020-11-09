@@ -1,5 +1,5 @@
+import messages from '@/internal/app/hello-world/messages'
 import app from './app'
-import messages from '../../../internal/app/hello-world/messages'
 
 describe('helloWorld', () => {
   it('Should return hello world', async () => {

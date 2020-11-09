@@ -1,4 +1,5 @@
-import messages from '../../../internal/app/hello-world/messages'
+import messages from "@/internal/app/hello-world/messages"
+
 let response
 
 /**
