@@ -3,7 +3,7 @@
 Bootstrap project to quickly kick off your serverless projects running with Node.js and AWS SAM framework.
 
 Features:
-* Type checking and compilation with TypeScript
+* Type checking and compilation for TypeScript code
 
 ## How to use this repo
 
