@@ -1,6 +1,9 @@
-# TypeScript + AWS SAM bootstrap
+# Node.js + AWS SAM bootstrap
 
-Bootstrap project to quickly kick off your serverless projects running with TypeScript and AWS SAM framework.
+Bootstrap project to quickly kick off your serverless projects running with Node.js and AWS SAM framework.
+
+Features:
+* Type checking and compilation with TypeScript
 
 ## How to use this repo
 
