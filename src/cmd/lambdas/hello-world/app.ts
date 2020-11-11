@@ -1,11 +1,14 @@
-import messages from "@/internal/app/hello-world/messages"
+import messages from '@/internal/app/hello-world/messages'
 
 let response
 
 /**
  * Hello World
  */
-export const lambdaHandler = async () => {
+export const lambdaHandler = async (): Promise<{
+  statusCode: string
+  body: string
+}> => {
   try {
     response = {
       statusCode: 200,

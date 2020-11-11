@@ -1,4 +1,4 @@
-const getHelloWorld = () => 'Hello, World!'
+const getHelloWorld = (): string => 'Hello, World!'
 
 export default {
   getHelloWorld
