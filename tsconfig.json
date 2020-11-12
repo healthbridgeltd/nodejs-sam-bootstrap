@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    // ECMAScript version supported by Node v12 
+    "lib": [
+      "ES2019"
+    ],
+    "module": "commonjs",
+    "target": "ES2019",
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": { 
+      "@/*": ["*"]
+    }
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/**/*",
+    ".webpack/**/*",
+    ".vscode/**/*"
+  ]
+}

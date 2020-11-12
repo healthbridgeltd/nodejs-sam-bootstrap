@@ -1,6 +1,7 @@
 const path = require('path')
 const AwsSamPlugin = require('aws-sam-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const awsSamPlugin = new AwsSamPlugin()
 
@@ -21,7 +22,11 @@ module.exports = {
 
   // .js extensions
   resolve: {
-    extensions: ['.js']
+    extensions: ['.ts', '.js'],
+
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    }
   },
 
   // Target node
@@ -35,8 +40,34 @@ module.exports = {
   // Set the webpack mode
   mode: process.env.NODE_ENV || 'production',
 
-  // Add the AWS SAM Webpack plugin
-  plugins: [awsSamPlugin],
+  module: {
+    rules: [
+      {
+        test: /\.(ts)$/,
+        loader: 'ts-loader',
+        include: [
+          path.resolve(__dirname, 'src'),
+        ],
+        exclude: [
+          [
+            path.resolve(__dirname, 'node_modules'),
+            path.resolve(__dirname, '.webpack'),
+          ],
+        ],
+        options: {
+          transpileOnly: true,
+          experimentalWatchApi: true,
+        },
+      },
+    ]
+  },
+
+  plugins: [
+    // Add the AWS SAM Webpack plugin
+    awsSamPlugin,
+    // Moving TypeScript compilation into separate process for quicker build time
+    new ForkTsCheckerWebpackPlugin()
+  ],
 
   optimization: {
     minimize: true,

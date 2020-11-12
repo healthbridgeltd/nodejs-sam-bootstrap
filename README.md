@@ -1,4 +1,9 @@
-# NodeJS + AWS SAM bootstrap
+# Node.js + AWS SAM bootstrap
+
+Bootstrap project to quickly kick off your serverless projects running with Node.js and AWS SAM framework.
+
+Features:
+* Type checking and compilation for TypeScript code
 
 ## How to use this repo
 
@@ -6,11 +11,6 @@ Click on the green button that says "Use this template", then chose a name for y
 This will create a new repository using this one.
 
 ![](how-to-use.gif)
-
-
-## Contributing to this project
-
-[Check contributing guidelines](./contributing.md)
 
 ## Setup Instructions
 
@@ -20,7 +20,6 @@ This will create a new repository using this one.
 * [Docker](https://docs.docker.com/install)
 * [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 * [SAM CLI](https://aws.amazon.com/serverless/sam/)
-
 
 ### Project Configuration
 
@@ -80,3 +79,7 @@ run             Run the lambda functions locally
 logs            Display logs of certain function (ex: make logs function=FUNCTION-NAME)
 destroy         Destroy the stacks (resources & application)
 ```
+
+## Contributing to this project
+
+[Check contributing guidelines](./contributing.md)

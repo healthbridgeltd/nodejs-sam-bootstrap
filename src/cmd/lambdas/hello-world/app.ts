@@ -1,10 +1,14 @@
-const messages = require('../../../internal/app/hello-world/messages')
+import messages from '@/internal/app/hello-world/messages'
+
 let response
 
 /**
  * Hello World
  */
-exports.lambdaHandler = async (event, context) => {
+export const lambdaHandler = async (): Promise<{
+  statusCode: number
+  body: string
+}> => {
   try {
     response = {
       statusCode: 200,
@@ -18,4 +22,8 @@ exports.lambdaHandler = async (event, context) => {
   }
 
   return response
+}
+
+export default {
+  lambdaHandler
 }
