@@ -6,9 +6,7 @@
     ],
     "module": "commonjs",
     "target": "ES2019",
-    "allowJs": true,
-    "checkJs": true,
-    "strictNullChecks": true,
+    "strict": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -18,7 +16,7 @@
     }
   },
   "include": [
-    "./**/*.ts"
+    "./src/**/*.ts"
   ],
   "exclude": [
     "node_modules/**/*",

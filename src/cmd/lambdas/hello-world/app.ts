@@ -6,7 +6,7 @@ let response
  * Hello World
  */
 export const lambdaHandler = async (): Promise<{
-  statusCode: string
+  statusCode: number
   body: string
 }> => {
   try {
