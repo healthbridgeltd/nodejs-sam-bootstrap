@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copy swagger file to the build file
+# Copy swagger file to the build directory
 cp swagger.yaml .aws-sam/build/swagger.yaml
 cp swagger.yaml ./build/templates/swagger.yaml
 
