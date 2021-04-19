@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+
+cp swagger.yaml .aws-sam/build/swagger.yaml
+cp swagger.yaml ./build/templates/swagger.yaml
+
+
 # Package binaries and upload them to S3 bucket
 sam package --template-file .aws-sam/build/$4.yaml --s3-bucket $2 --output-template-file build/templates/$1-$4-out.yaml --profile $1
 

@@ -1,9 +1,9 @@
-import messages from '@/internal/app/hello-world/messages'
+import pet from '@/internal/app/pet-module/pet'
 
 let response
 
 /**
- * Hello World
+ * Get Pet By ID
  */
 export const lambdaHandler = async (): Promise<{
   statusCode: number
@@ -12,7 +12,7 @@ export const lambdaHandler = async (): Promise<{
   try {
     response = {
       statusCode: 200,
-      body: messages.getHelloWorld()
+      body: JSON.stringify(pet.getPetById())
     }
   } catch (err) {
     response = {
