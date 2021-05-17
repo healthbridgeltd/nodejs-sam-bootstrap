@@ -35,21 +35,46 @@ Conditions:
   CreateSandboxResources: !Equals [!Ref Stage, sandbox]
 
 Resources:
+  #####  API Gateway #####
+  PetStoreApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      MethodSettings:
+        - HttpMethod: "*"
+          LoggingLevel: INFO
+          MetricsEnabled: true
+          ResourcePath: /*
+      StageName: Prod
+      TracingEnabled: true
+      DefinitionBody:
+        'Fn::Transform':
+          Name: 'AWS::Include'
+          Parameters:
+            Location: ./swagger.yaml
+
   #####  Lambda Functions #####
-  HelloWorldFunction:
+  GetPetFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: cmd/lambdas/hello-world/app.lambdaHandler
-      CodeUri: src/
+      FunctionName: GetPetFunction
       Runtime: nodejs12.x
+      Handler: cmd/lambdas/get-pet/app.lambdaHandler
+      CodeUri: src/
+      MemorySize: 512
+      Tracing: Active
       Events:
-        CatchAll:
+        GetPetApi:
           Type: Api
           Properties:
-            Path: /hello-world
+            RestApiId: !Ref "PetStoreApiGateway"
+            Path: /pet/{petId}
             Method: GET
+      Policies:
+        - AWSLambdaBasicExecutionRole
+
+
 
 Outputs:
   HelloWorldApi:
-    Description: "API Gateway endpoint URL to print Hello, World!"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello-world/"
+    Description: "API Gateway endpoint URL to get a pet"
+    Value: !Sub "https://${PetStoreApiGateway}.execute-api.${AWS::Region}.amazonaws.com/Prod/pet/{petId}"
