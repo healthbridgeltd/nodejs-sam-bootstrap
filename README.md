@@ -68,9 +68,11 @@ make deploy STAGE=staging
 ## Make targets
 ```
 help            Prints this help screen
-setup           Create the s3 bucket that will host the artifcats in aws environment
+setup           Create the s3 bucket that will host the artifacts in aws environment
 docker-build    Build the docker image to execute make commands locally
-install         install npm dependencies
+install         Install npm dependencies
+audit           Run npm audit
+audit-fix       Install npm audit fixes
 lint            Run linter
 format          Format code
 tests           Run tests

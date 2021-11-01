@@ -24,11 +24,11 @@ Parameters:
 Mappings:
   StagesMap:
     sandbox:
-      VariableName: Value
+      NewrelicExtensionLayer: '{{resolve:ssm:/snd/NEW_RELIC_LAYER_NODE12}}'
     staging:
-      VariableName: Value
+      NewrelicExtensionLayer: '{{resolve:ssm:/stg/NEW_RELIC_LAYER_NODE12}}'
     production:
-      VariableName: Value
+      NewrelicExtensionLayer: '{{resolve:ssm:/prd/NEW_RELIC_LAYER_NODE12}}'
 
 #####  Template Conditions #####
 Conditions:
@@ -42,6 +42,11 @@ Resources:
       Handler: cmd/lambdas/hello-world/app.lambdaHandler
       CodeUri: src/
       Runtime: nodejs12.x
+      Layers:
+        - !FindInMap
+          - StagesMap
+          - Ref: Stage
+          - NewrelicExtensionLayer
       Events:
         CatchAll:
           Type: Api

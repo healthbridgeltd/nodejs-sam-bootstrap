@@ -29,8 +29,9 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
 
-## Create the s3 bucket that will host the artifcats in aws environment
+## Create the s3 bucket that will host the artifacts in aws environment
 setup:
+	scripts/setup.sh $(AWS_PROFILE) $(S3_BUCKET) $(APP_NAME) ${APP_TEMPLATE} ${USERNAME}
 	aws configure --profile $(AWS_PROFILE)
 	aws s3 mb s3://$(S3_BUCKET) --profile $(AWS_PROFILE)
 
@@ -38,9 +39,17 @@ setup:
 docker-build:	
 	docker build --build-arg UID=${UID} --build-arg GID=${GID} -f build/ci/Dockerfile . -t $(APP_NAME):latest
 
-## install npm dependencies
+## Install npm dependencies
 install:
 	${DOCKER} npm install
+
+## Run npm audit
+audit:
+	${DOCKER} npm audit
+
+## Install npm audit fixes
+audit-fix:
+	${DOCKER} npm audit fix
 
 ## Run linter
 lint:
@@ -54,7 +63,7 @@ format:
 tests:
 	${DOCKER} npm run test
 
-## build webpack
+## Build webpack
 webpack-build:
 	NODE_ENV=production ${DOCKER} npm run build
 
