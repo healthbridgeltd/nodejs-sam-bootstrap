@@ -9,7 +9,7 @@ S3_BUCKET = $(APP_NAME)-$(AWS_PROFILE)-$(USERNAME)
 
 ifneq ($(USE_DOCKER),no)
 	PROJECT_DIR ?=  $(shell pwd)
-	DOCKER = docker run -t -v ${PROJECT_DIR}:/app $(APP_NAME):latest
+	DOCKER = docker run --user ${UID}:${GID} -t -v ${PROJECT_DIR}:/app $(APP_NAME):latest
 endif
 
 .SILENT:
@@ -36,7 +36,7 @@ setup:
 
 ## Build the docker image to execute make commands locally
 docker-build:	
-	docker build -f build/ci/Dockerfile . -t $(APP_NAME):latest
+	docker build --build-arg UID=${UID} --build-arg GID=${GID} -f build/ci/Dockerfile . -t $(APP_NAME):latest
 
 ## install npm dependencies
 install:
