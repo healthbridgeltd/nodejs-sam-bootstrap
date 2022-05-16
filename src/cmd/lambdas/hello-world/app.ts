@@ -14,7 +14,7 @@ export const lambdaHandler = async (): Promise<{
       statusCode: 200,
       body: messages.getHelloWorld()
     }
-  } catch (err) {
+  } catch (err: any) {
     response = {
       statusCode: 500,
       body: err.message
