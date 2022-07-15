@@ -40,7 +40,7 @@ docker-build:
 
 ## install npm dependencies
 install:
-	${DOCKER} npm install
+	${DOCKER} npm ci
 
 ## Run linter
 lint:
