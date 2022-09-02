@@ -1,5 +1,5 @@
 const path = require('path')
-const AwsSamPlugin = require('aws-sam-webpack-plugin')
+const AwsSamPlugin = require('@lambda/aws-sam-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
