@@ -20,11 +20,11 @@
     "watch": "webpack-cli -w"
   },
   "devDependencies": {
-    "@lambda/aws-sam-webpack-plugin": "0.12.1",
     "@types/aws-lambda": "8.10.102",
     "@types/jest": "28.1.1",
     "@typescript-eslint/eslint-plugin": "5.36.1",
     "@typescript-eslint/parser": "5.36.1",
+    "aws-sam-webpack-plugin": "0.12.0",
     "eslint": "8.23.0",
     "eslint-config-standard-with-typescript": "22.0.0",
     "eslint-plugin-import": "2.26.0",
