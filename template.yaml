@@ -24,11 +24,11 @@ Parameters:
 Mappings:
   StagesMap:
     sandbox:
-      NewrelicExtensionLayer: '{{resolve:ssm:/snd/NEW_RELIC_LAYER_NODE12}}'
+      NewrelicExtensionLayer: '{{resolve:ssm:/snd/NEW_RELIC_LAYER_NODE16}}'
     staging:
-      NewrelicExtensionLayer: '{{resolve:ssm:/stg/NEW_RELIC_LAYER_NODE12}}'
+      NewrelicExtensionLayer: '{{resolve:ssm:/stg/NEW_RELIC_LAYER_NODE16}}'
     production:
-      NewrelicExtensionLayer: '{{resolve:ssm:/prd/NEW_RELIC_LAYER_NODE12}}'
+      NewrelicExtensionLayer: '{{resolve:ssm:/prd/NEW_RELIC_LAYER_NODE16}}'
 
 #####  Template Conditions #####
 Conditions:
