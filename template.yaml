@@ -41,7 +41,7 @@ Resources:
     Properties:
       Handler: cmd/lambdas/hello-world/app.lambdaHandler
       CodeUri: src/
-      Runtime: nodejs12.x
+      Runtime: nodejs16.x
       Layers:
         - !FindInMap
           - StagesMap
