@@ -2,6 +2,8 @@
 include ./configs/.env
 export $(shell sed 's/=.*//' ./configs/.env)
 export SAM_CLI_TELEMETRY=0
+export UID=$(shell id -u)
+export GID=$(shell id -g)
 
 AWS_PROFILE ?= sandbox
 APP_TEMPLATE = "template"
