@@ -5,7 +5,7 @@
   "repository": "https://github.com/healthbridgeltd/nodejs-sam-bootstrap/",
   "author": "Zava",
   "dependencies": {
-    "aws-sdk": "2.1135.0",
+    "aws-sdk": "2.1208.0",
     "source-map-support": "0.5.21"
   },
   "scripts": {
@@ -20,7 +20,7 @@
     "watch": "webpack-cli -w"
   },
   "devDependencies": {
-    "@types/aws-lambda": "8.10.97",
+    "@types/aws-lambda": "8.10.102",
     "@types/jest": "28.1.1",
     "@typescript-eslint/eslint-plugin": "5.36.1",
     "@typescript-eslint/parser": "5.36.1",
