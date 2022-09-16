@@ -16,7 +16,7 @@ This will create a new repository using this one.
 
 ### Prerequisites
 
-* [NodeJS version 12 or later](https://nodejs.org/en/download/) - or use [nvm](https://github.com/nvm-sh/nvm)
+* [NodeJS version 16 or later](https://nodejs.org/en/download/) - or use [nvm](https://github.com/nvm-sh/nvm)
 * [Docker](https://docs.docker.com/install)
 * [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 * [SAM CLI](https://aws.amazon.com/serverless/sam/)
@@ -68,9 +68,11 @@ make deploy STAGE=staging
 ## Make targets
 ```
 help            Prints this help screen
-setup           Create the s3 bucket that will host the artifcats in aws environment
+setup           Create the s3 bucket that will host the artifacts in aws environment
 docker-build    Build the docker image to execute make commands locally
-install         install npm dependencies
+install         Install npm dependencies
+audit           Run npm audit
+audit-fix       Install npm audit fixes
 lint            Run linter
 format          Format code
 tests           Run tests
