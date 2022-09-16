@@ -3,7 +3,7 @@ module.exports = {
     project: './tsconfig.json',
     sourceType: 'module',
   },
-  plugins: ['standard'],
+  plugins: [],
   extends: [
     'standard-with-typescript',
     'plugin:@typescript-eslint/eslint-recommended',
