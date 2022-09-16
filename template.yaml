@@ -24,11 +24,11 @@ Parameters:
 Mappings:
   StagesMap:
     sandbox:
-      VariableName: Value
+      NewrelicExtensionLayer: NEW_RELIC_LAYER_NODE16
     staging:
-      VariableName: Value
+      NewrelicExtensionLayer: NEW_RELIC_LAYER_NODE16
     production:
-      VariableName: Value
+      NewrelicExtensionLayer: NEW_RELIC_LAYER_NODE16
 
 #####  Template Conditions #####
 Conditions:
@@ -42,6 +42,11 @@ Resources:
       Handler: cmd/lambdas/hello-world/app.lambdaHandler
       CodeUri: src/
       Runtime: nodejs16.x
+      Layers:
+        - !FindInMap
+          - StagesMap
+          - Ref: Stage
+          - NewrelicExtensionLayer
       Events:
         CatchAll:
           Type: Api
