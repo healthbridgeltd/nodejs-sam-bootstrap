@@ -42,7 +42,7 @@ docker-build:
 
 ## Install npm dependencies
 install:
-	${DOCKER} npm install
+	${DOCKER} npm ci
 
 ## Run npm audit
 audit:
