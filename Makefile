@@ -33,7 +33,6 @@ help:
 
 ## Create the s3 bucket that will host the artifacts in aws environment
 setup:
-	scripts/setup.sh $(AWS_PROFILE) $(S3_BUCKET) $(APP_NAME) ${APP_TEMPLATE} ${USERNAME}
 	aws configure --profile $(AWS_PROFILE)
 	aws s3 mb s3://$(S3_BUCKET) --profile $(AWS_PROFILE)
 
