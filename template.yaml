@@ -19,6 +19,9 @@ Parameters:
     Type: String
     Description: Parameter for getting the deployment stage
     Default: default
+  NewrelicExtensionLayer:
+    Type: String
+    Description: NewRelic extension layer
 
 #####  Environment Variables #####
 Mappings:
@@ -43,10 +46,7 @@ Resources:
       CodeUri: src/
       Runtime: nodejs16.x
       Layers:
-        - !FindInMap
-          - StagesMap
-          - Ref: Stage
-          - NewrelicExtensionLayer
+        - !Ref NewrelicExtensionLayer
       Events:
         CatchAll:
           Type: Api
