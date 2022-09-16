@@ -27,11 +27,11 @@ Parameters:
 Mappings:
   StagesMap:
     sandbox:
-      NewrelicExtensionLayer: NEW_RELIC_LAYER_NODE16
+      VariableName: Value
     staging:
-      NewrelicExtensionLayer: NEW_RELIC_LAYER_NODE16
+      VariableName: Value
     production:
-      NewrelicExtensionLayer: NEW_RELIC_LAYER_NODE16
+      VariableName: Value
 
 #####  Template Conditions #####
 Conditions:
