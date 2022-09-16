@@ -7,7 +7,8 @@ sam package --template-file .aws-sam/build/$4.yaml --s3-bucket $2 --output-templ
 sed -i'.handler.bak' -e 's/      Handler: app.lambdaHandler/      Handler: newrelic-lambda-wrapper.handler/g' build/templates/$1-$4-out.yaml
 
 # Set NewRelic Layer Version
-NEW_RELIC_LATEST_LAYER_NODE16=$(curl -s https://eu-west-1.layers.newrelic-external.com/get-layers?CompatibleRuntime=nodejs16.x \
+NEW_RELIC_LAYER_API_URL="https://eu-west-1.layers.newrelic-external.com/get-layers"
+NEW_RELIC_LATEST_LAYER_NODE16=$(curl -s ${NEW_RELIC_LAYER_API_URL}?CompatibleRuntime=nodejs16.x \
   | jq -r '.Layers[] | select(.LayerArn == "arn:aws:lambda:eu-west-1:451483290750:layer:NewRelicNodeJS16X") | .LatestMatchingVersion.LayerVersionArn'
 )
 sed -i'.layer.bak' -e "s/NEW_RELIC_LAYER_NODE16/$NEW_RELIC_LATEST_LAYER_NODE16/g" build/templates/$1-$4-out.yaml
