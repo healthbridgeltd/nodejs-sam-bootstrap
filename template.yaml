@@ -11,7 +11,10 @@ Globals:
     Timeout: 5
     Environment:
       Variables:
+        AccountId: !Ref AWS::AccountId
         Region: "eu-west-1"
+        NEWRELIC_HANDLER: newrelic-lambda-wrapper.handler
+        NEW_RELIC_LAMBDA_HANDLER: app.lambdaHandler
 
 #####  Input Parameters #####
 Parameters:
@@ -27,11 +30,14 @@ Parameters:
 Mappings:
   StagesMap:
     sandbox:
-      VariableName: Value
+      NewRelicAccountId: 0
+      NewRelicLicenseSecretKeyArn: arn:aws:secretsmanager:eu-west-1::secret:NEW_RELIC_NON_EXISTING_LICENSE_KEY
     staging:
-      VariableName: Value
+      NewRelicAccountId: '{{resolve:ssm:/stg/newrelic-account-id}}'
+      NewRelicLicenseSecretKeyArn: arn:aws:secretsmanager:eu-west-1::secret:NEW_RELIC_LICENSE_KEY-staging
     production:
-      VariableName: Value
+      NewRelicAccountId: '{{resolve:ssm:/prd/newrelic-account-id}}'
+      NewRelicLicenseSecretKeyArn: arn:aws:secretsmanager:eu-west-1::secret:NEW_RELIC_LICENSE_KEY-production
 
 #####  Template Conditions #####
 Conditions:
@@ -45,8 +51,20 @@ Resources:
       Handler: cmd/lambdas/hello-world/app.lambdaHandler
       CodeUri: src/
       Runtime: nodejs16.x
+      Environment:
+        Variables:
+          NEW_RELIC_ACCOUNT_ID: !FindInMap
+            - StagesMap
+            - Ref: Stage
+            - NewRelicAccountId
       Layers:
         - !Ref NewrelicExtensionLayer
+      Policies:
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: !FindInMap
+              - StagesMap
+              - Ref: Stage
+              - NewRelicLicenseSecretKeyArn
       Events:
         CatchAll:
           Type: Api
