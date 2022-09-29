@@ -14,6 +14,10 @@ Globals:
         AccountId: !Ref AWS::AccountId
         Region: "eu-west-1"
         NEWRELIC_HANDLER: newrelic-lambda-wrapper.handler
+        NEW_RELIC_ACCOUNT_ID: !FindInMap
+          - StagesMap
+          - Ref: Stage
+          - NewRelicAccountId
         NEW_RELIC_LAMBDA_HANDLER: app.lambdaHandler
 
 #####  Input Parameters #####
@@ -51,12 +55,6 @@ Resources:
       Handler: cmd/lambdas/hello-world/app.lambdaHandler
       CodeUri: src/
       Runtime: nodejs16.x
-      Environment:
-        Variables:
-          NEW_RELIC_ACCOUNT_ID: !FindInMap
-            - StagesMap
-            - Ref: Stage
-            - NewRelicAccountId
       Layers:
         - !Ref NewrelicExtensionLayer
       Policies:
